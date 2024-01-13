@@ -1,14 +1,13 @@
 #include "shell.h"
 
 
-int main(void)
+int main()
 {
-	char typein[];
-
 	while (1)
 	{
 		prompt();
-		if (fgets(typein, sizeof(typein), stdin) == NULL)
+		char *typein[];
+		fgets(typein, sizeof(typein), stdin);
 		{
 			printf("\n");
 			break;
