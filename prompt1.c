@@ -1,30 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "shell.h"
 
-/**
- * main - prints "$ ", wait for the user to enter a command
- * prints it on the next line
- *
- * Return: void
- */
 
 int main(void)
 {
-	char *prt = NULL;
-	size_t pn = 0;
-	ssize_t strm;
+	char typein[];
 
-	printf("$ ");
-	strm = getline(&prt, &pn, stdin);
-
-	if (strm == -1)
+	while (1)
 	{
-		printf("Error");
+		prompt();
+		if (fgets(typein, sizeof(typein), stdin) == NULL)
+		{
+			printf("\n");
+			break;
+		}
+		typein[strlen(typein) - 1] = '\0';
+		execute(typein);
 	}
-	printf("%s", prt);
-
-	free(prt);
-
-	return (0);
+	return 0;
 }
-
