@@ -1,11 +1,14 @@
 #include "shell.h"
 
-void execute(char* my_cmd)
+void execute(char* command)
 {
 
-	char* args[] = {my_cmd, NULL};
+	char* args[2];
 
-	if (execve(args[0], args, __environ) < 0)
+	args[0]	= command;
+	args[1] = NULL;
+
+	if (execve(args[0], args, NULL) < 0)
 	{
 		perror("Error");
 	}

@@ -12,7 +12,7 @@
 
 void prompt();
 
-void execute(char* my_cmd);
+void execute(char* command);
 
 
 #endif
