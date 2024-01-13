@@ -2,7 +2,7 @@
 
 void prompt()
 {
-	printf("$ ");
+	printf(PROMPT);
 }
 
 

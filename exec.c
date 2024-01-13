@@ -2,20 +2,12 @@
 
 void execute(char* my_cmd)
 {
-	char* delim = " ";
-	char* tkn;
 
-	tkn = strtok(my_cmd, delim);
+	char* args[] = {my_cmd, NULL};
 
-	while (tkn != NULL)
+	if (execve(args[0], args, __environ) < 0)
 	{
-	char* args[2];
-	args[0] = tkn;
-	args[1] = NULL;
-
-	execve(args[0], args, NULL);
+		perror("Error");
 	}
-
-	perror("Error");
 }
 

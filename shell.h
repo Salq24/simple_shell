@@ -7,6 +7,9 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+#define PROMPT "$ "
+#define BUFFER_SIZE 1024
+
 void prompt();
 
 void execute(char* my_cmd);
